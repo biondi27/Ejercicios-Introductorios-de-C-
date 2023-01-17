@@ -11,6 +11,8 @@ Console.WriteLine("El primer dígito es: " + digit1);
 Console.WriteLine("El segundo dígito es: "+ digit2);
 Console.WriteLine("La suma de los mismos es: " + (digit1 + digit2));
 
+
+
 // 2. Leer un número entero de dos dígitos y determinar si es primo y además si es negativo.
 Console.WriteLine("Introduzca un número entero de dos dígitos: ");
 int numero = Convert.ToInt32(Console.ReadLine());
@@ -39,6 +41,8 @@ else
         Console.WriteLine("Es un número primo.");
     }
 }
+
+
 
 // 3. Leer un número entero de dos dígitos y determinar si sus dos dígitos son primos.
 Console.WriteLine("Introduzca un número entero de dos dígitos: ");
@@ -86,6 +90,8 @@ else
     Console.WriteLine("El segundo dígito no es un número primo.");
 }
 
+
+
 // 4. Leer dos números enteros de dos dígitos y determinar si la suma de los dos números origina un número par.
 Console.WriteLine("Introduzca un número entero de dos dígitos: ");
 int numero1 = Convert.ToInt32(Console.ReadLine());
@@ -101,6 +107,8 @@ else
 {
     Console.WriteLine("Pero no es un número par.");
 }
+
+
 
 //5. Leer un número entero de tres dígitos y determinar en qué posición está el mayor dígito.
 Console.WriteLine("Introduzca un número entero de tres dígitos: ");
@@ -124,6 +132,8 @@ else if (digit3 > digit1
 {
     Console.WriteLine("Y su dígito más grande es el tercero: " + digit3);
 }
+
+
 
 //6. Leer un número entero de tres dígitos y determinar si algún dígito es múltiplo de los otros.
 Console.WriteLine("Introduzca un número entero de tres dígitos: ");
@@ -157,11 +167,42 @@ if (((digit2 / digit3)% 1) == 0)
     Console.WriteLine("El segundo dígito es múltiplo del tercero.");
 }
 
+
+
 //7. Leer tres números enteros y determinar cuál es el mayor. Usar solamente dos variables.
-Console.WriteLine("Introduzca tres números enteros separados por espacios: ");
-string numero = Console.ReadLine();
-int numeros = Convert.ToInt32(Convert.ToInt32(numero.Split(" "))
-Console.WriteLine(Math.Max(numeros));
+Console.WriteLine("Introduzca un número entero cualquiera: ");
+int numero1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Introduzca un segundo número entero cualquiera: ");
+int numero2 = Convert.ToInt32(Console.ReadLine());
+if (numero1 != numero2)
+{
+    if (numero2 > numero1)
+    {
+        Console.WriteLine("Introduzca un tercer número entero cualquiera: ");
+        numero1 = Convert.ToInt32(Console.ReadLine());
+    }
+    else if (numero1 > numero2)
+    {
+        Console.WriteLine("Introduzca un tercer número entero cualquiera: ");
+        numero2 = Convert.ToInt32(Console.ReadLine());
+    }
+    Console.WriteLine("El número más grande es: " + Math.Max(numero1, numero2));
+}
+else if (numero1 == numero2)
+{
+    Console.WriteLine("Introduzca un tercer número entero cualquiera: ");
+    numero2 = Convert.ToInt32(Console.ReadLine());
+    if (numero1 == numero2)
+    {
+        Console.WriteLine("Los tres números son iguales.");
+    }
+    else
+    {
+        Console.WriteLine("El número más grande es: " + Math.Max(numero1, numero2));
+    }
+}
+
+
 
 // 8.Leer un número entero de cinco dígitos y determinar si es un número Capicúa. Ej. 15651, 59895.
 Console.WriteLine("Introduzca un número entero de cinco dígitos: ");
@@ -181,6 +222,8 @@ else
     Console.WriteLine("Su número no es capicúa.");
 }
 
+
+
 //9. Leer un número entero de cuatro dígitos y determinar si el segundo dígito es igual al penúltimo.
 Console.WriteLine("Introduzca un número entero de cuatro dígitos: ");
 int numero = Convert.ToInt32(Console.ReadLine());
@@ -195,6 +238,8 @@ else
     Console.WriteLine("El segundo dígito no es igual al penúltimo.");
 }
 
+
+
 //10. Leer dos números enteros y si la diferencia entre los dos es menor o igual a 10 entonces mostrar
 //en pantallantodos los enteros comprendidos entre el menor y el mayor de los números leídos.
 Console.WriteLine("Introduzca un número entero cualquiera: ");
@@ -204,75 +249,32 @@ int numero2 = Convert.ToInt32(Console.ReadLine());
 if (numero1 > numero2)
 {
     int diferencia = (numero1 - numero2);
-    if (diferencia >= 10)
-    {
-        var numbers =
-        Enumerable
-            .Range(numero2, numero1)
-            .Select(x => x.ToString())
-            .ToArray();
-    }
-    else
-    {
-        Console.WriteLine("No hay mucha diferencia entre ellos...");
-    }
-}
-else
-{
-    int diferencia = (numero2 - numero1);
-    if (diferencia >= 10)
-    {
-        var numbers =
-        Enumerable
-            .Range(numero2, numero1)
-            .Select(x => x.ToString())
-            .ToArray();
-    }
-    else
-    {
-        Console.WriteLine("No hay mucha diferencia entre ellos...");
-    }
-}
-
-//10. Leer dos números enteros y si la diferencia entre los dos es menor o igual a 10 entonces mostrar
-//en pantalla todos los enteros comprendidos entre el menor y el mayor de los números leídos.
-using System.Runtime.CompilerServices;
-
-Console.WriteLine("Introduzca un número entero cualquiera: ");
-int numero1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Introduzca un segundo número entero cualquiera: ");
-int numero2 = Convert.ToInt32(Console.ReadLine());
-if (numero1 > numero2)
-{
-    int diferencia = (numero1 - numero2);
-    if (diferencia >= 10)
+    if (diferencia <= 10)
     {
         Console.WriteLine("Estos son los números enteros entre ellos: ");
-        IEnumerable<int> squares = Enumerable.Range(numero2, numero1).Select(x => x);
-        foreach (int num in squares)
+        for (int i = numero2 + 1; i <= numero1 - 1; i++)
         {
-            Console.WriteLine(num);
+            Console.WriteLine(i);
         }
     }
     else
     {
-        Console.WriteLine("No hay mucha diferencia entre ellos...");
+        Console.WriteLine("La diferencia es demasiado grande!");
     }
 }
-else
+else if (numero2 > numero1)
 {
     int diferencia = (numero2 - numero1);
-    if (diferencia >= 10)
+    if (diferencia <= 10)
     {
         Console.WriteLine("Estos son los números enteros entre ellos: ");
-        IEnumerable<int> squares = Enumerable.Range(numero1, numero2).Select(x => x);
-        foreach (int num in squares)
+        for (int i = numero1 + 1; i <= numero2 - 1; i++)
         {
-            Console.WriteLine(num);
+            Console.WriteLine(i);
         }
     }
     else
     {
-        Console.WriteLine("No hay mucha diferencia entre ellos...");
+        Console.WriteLine("La diferencia es demasiado grande!");
     }
 }
